@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>¡Gracias por aceptar ser mi novia!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Pirata+One&family=Roboto:wght@300;400;500;700;900&family=Rye&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #0c0c0c;
+            font-family: Arial, sans-serif;
+        }
+        #container {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+            background: #FBA1B7;
+            border-radius: 10px;
+            width: 400px;
+            margin-top: 1%;
+        }
+        h1 {
+            font-family: 'Pirata One', cursive;
+            font-size: 32px;
+            color: #242424;
+            margin-bottom: 10px;
+        }
+        p {
+			font-weight: bold;
+            font-family: 'Dancing Script', cursive;
+            font-size: 24px;
+            color: #000000;
+            margin: 0 auto 20px;
+        }
+        .responsive_video{
+            height: 300px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>¡Gracias por aceptar ser mi novia!</h1>
+        <p>Quiero que sepas que eres muy especial para mí y estoy completamente enamorado de ti.</p>
+        <div class="video_container">
+            <video class="responsive_video" src="amor.mp4" controls autoplay alt="video de amor"></video>
+        </div>
+    </div>
+
+    <script>
+        const video = document.querySelector('.responsive_video');
+        
+        video.play().catch(error => {
+            console.error('La reproducción automática fue bloqueada:', error);
+        });
+    </script>
+</body>
+</html>

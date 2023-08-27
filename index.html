@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi novia?</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background:#0c0c0c;
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+        }
+        #container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 3rem;
+            color: #f44336;
+            margin-bottom: 1rem;
+        }
+        #buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+
+
+        a {
+            margin: 5px;
+            position: relative;
+            width: 160px;
+            height: 50px;
+            line-height: 48px;
+            background: #000;
+            text-transform: uppercase;
+            font-size: 20px;
+            letter-spacing: 4px;
+            text-decoration: none;
+            -webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
+        }
+
+        a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+            background-size: 400%;
+            opacity: 0;
+            transition: .5s;
+            animation: animate 20s linear infinite;
+        }
+
+        a::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+        background-size: 400%;
+        opacity: 0;
+        filter: blur(20px);
+        transition: .5s;
+        animation: animate 20s linear infinite;
+        }
+
+        a:hover::before,
+        a:hover::after {
+        opacity: 1;
+        }
+
+        @keyframes animate {
+        0% {
+            background-position: 0 0;
+        }
+        
+        50% {
+            background-position: 300% 0;
+        }
+        
+        100% {
+            background-position: 0 0;
+        }
+        }
+
+        a span {
+        position: absolute;
+        display: block;
+        top: 1px;
+        left: 1px;
+        right: 1px;
+        bottom: 1px;
+        text-align: center;
+        background: #0c0c0c;
+        color: rgba(255, 255, 255, 0.342);
+        transition: .5s;
+        z-index: 1;
+        }
+
+        a:hover span {
+        color: rgba(255, 255, 255, 1);
+        }
+
+        a span::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background: rgba(255, 255, 255, .1);
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1><span style="background: linear-gradient(to right, #f80000, #c0006a); -webkit-background-clip: text; background-clip: text; color: transparent;">¿Quieres ser mi novia?</span></h1>
+        <div id="buttons"> 
+            <a onclick="accionParaCuandoEllaDigaQueSi()" id="btnSi"><span>¡Sí!</span></a>
+            <a id="btnNo" onmouseover="mueveElBoton()"><span>¡No!</span></a>
+        </div>
+    </div>
+    <script>
+        function accionParaCuandoEllaDigaQueSi() {
+            window.location.href = "aceptacion.html";
+        }
+        let lastPosition = { x: 0, y: 0 };
+
+function mueveElBoton() {
+    const containerWidth = 700;
+    const containerHeight = 700;
+    const minDistance = 90;
+
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+
+    const x1 = centerX - containerWidth / 2 + minDistance;
+    const y1 = centerY - containerHeight / 2 + minDistance;
+    const x2 = centerX + containerWidth / 2 - minDistance;
+    const y2 = centerY + containerHeight / 2 - minDistance;
+
+    const newWidth = x1 + Math.random() * (x2 - x1);
+    const newHeight = y1 + Math.random() * (y2 - y1);
+
+    // Calcula la distancia entre la posición actual y la nueva posición
+    const distance = Math.sqrt((newWidth - lastPosition.x) ** 2 + (newHeight - lastPosition.y) ** 2);
+
+    // Si la distancia es menor a 100px, realiza un movimiento rápido
+    if (distance < minDistance) {
+        setButtonPosition(newWidth, newHeight);
+    } else {
+        setButtonPosition(newWidth, newHeight);
+    }
+
+    lastPosition.x = newWidth;
+    lastPosition.y = newHeight;
+}
+
+function setButtonPosition(x, y) {
+    const btnNo = document.getElementById("btnNo");
+    btnNo.style.position = "absolute";
+    btnNo.style.left = x + "px";
+    btnNo.style.top = y + "px";
+}
+
+
+    </script>
+</body>
+</html>
